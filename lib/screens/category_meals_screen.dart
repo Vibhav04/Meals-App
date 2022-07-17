@@ -29,6 +29,7 @@ class CategoryMealsScreen extends StatelessWidget {
             duration: categoryMeals[index].duration,
             complexity: categoryMeals[index].complexity,
             affordability: categoryMeals[index].affordability,
+            id: categoryMeals[index].id,
           );
         },
         itemCount: categoryMeals.length,
