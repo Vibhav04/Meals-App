@@ -150,7 +150,6 @@ class SplashScreen extends StatelessWidget {
         favoriteMeals: _favoriteMeals,
       ),
       splashIconSize: 250,
-      duration: 3000,
       splashTransition: SplashTransition.scaleTransition,
       animationDuration: const Duration(
         seconds: 1,
