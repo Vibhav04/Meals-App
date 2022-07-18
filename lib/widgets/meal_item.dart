@@ -136,7 +136,7 @@ class MealItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.money),
+                      const Icon(Icons.currency_rupee),
                       const SizedBox(
                         width: 6,
                       ),
