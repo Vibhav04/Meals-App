@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
     'vegetarian': false,
   };
   List<Meal> _availableMeals = DUMMY_MEALS;
-  List<Meal> _favoriteMeals = [];
+  final List<Meal> _favoriteMeals = [];
 
   void _setFilters(Map<String, bool> filterData) {
     setState(() {
@@ -94,18 +94,27 @@ class _MyAppState extends State<MyApp> {
       ),
       initialRoute: '/', // default is '/'
       routes: {
-        '/': (ctx) => const TabsScreen(),
+        '/': (ctx) => TabsScreen(
+              favoriteMeals: _favoriteMeals,
+            ),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(
               availableMeals: _availableMeals,
             ),
-        MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(
+              isFavorite: _isMealFavorite,
+              toggleFavorite: _toggleFavorite,
+            ),
         FiltersScreen.routeName: (ctx) => FiltersScreen(
               currentFilters: _filters,
               saveFilters: _setFilters,
             ),
       },
       onUnknownRoute: (settings) {
-        return MaterialPageRoute(builder: (ctx) => const TabsScreen());
+        return MaterialPageRoute(
+          builder: (ctx) => TabsScreen(
+            favoriteMeals: _favoriteMeals,
+          ),
+        );
       },
     );
   }
