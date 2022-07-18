@@ -6,6 +6,8 @@ import './favorites_screen.dart';
 import '../models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
+  static const routeName = '/tabs-screen';
+
   final List<Meal> favoriteMeals;
 
   const TabsScreen({super.key, required this.favoriteMeals});

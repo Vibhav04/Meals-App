@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../screens/filters_screen.dart';
+import '../screens/tabs_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -49,7 +50,7 @@ class MainDrawer extends StatelessWidget {
             'Meals',
             Icons.restaurant,
             () {
-              Navigator.of(context).pushReplacementNamed('/');
+              Navigator.of(context).pushReplacementNamed(TabsScreen.routeName);
             },
           ),
           buildListTile(

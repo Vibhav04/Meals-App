@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import './dummy_data.dart';
@@ -92,9 +93,9 @@ class _MyAppState extends State<MyApp> {
               fontWeight: FontWeight.bold,
             )),
       ),
-      initialRoute: '/', // default is '/'
+      home: SplashScreen(),
       routes: {
-        '/': (ctx) => TabsScreen(
+        TabsScreen.routeName: (ctx) => TabsScreen(
               favoriteMeals: _favoriteMeals,
             ),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(
@@ -116,6 +117,44 @@ class _MyAppState extends State<MyApp> {
           ),
         );
       },
+    );
+  }
+}
+
+class SplashScreen extends StatelessWidget {
+  final List<Meal> _favoriteMeals = [];
+
+  SplashScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSplashScreen(
+      splash: Column(
+        children: [
+          Image.asset("assets/icon.png"),
+          const Padding(
+            padding: EdgeInsets.all(15),
+            child: Text(
+              'DeliMeals',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
+      backgroundColor: Colors.pink,
+      nextScreen: TabsScreen(
+        favoriteMeals: _favoriteMeals,
+      ),
+      splashIconSize: 250,
+      duration: 3000,
+      splashTransition: SplashTransition.fadeTransition,
+      animationDuration: const Duration(
+        seconds: 1,
+      ),
     );
   }
 }
