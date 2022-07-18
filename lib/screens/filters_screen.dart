@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../screens/tabs_screen.dart';
 import '../widgets/main_drawer.dart';
 
 class FiltersScreen extends StatefulWidget {
@@ -59,7 +60,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                 'vegetarian': _vegetarian,
               };
               widget.saveFilters(selectedFilters);
-              Navigator.of(context).pushReplacementNamed('/');
+              Navigator.of(context).pushReplacementNamed(TabsScreen.routeName);
             },
             icon: const Icon(Icons.save),
           ),
